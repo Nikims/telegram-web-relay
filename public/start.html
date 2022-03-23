@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // setInterval(()=>{
+      //                         document.getElementsByTagName("button")[0].addEventListener("click",()=>{
+      //                             console.log(document.getElementsByTagName("input")[0].value)
+      //                             fetch("/sendmsg",{
+      //                                 method:"POST",
+      //                                 body:JSON.stringify(
+      //                                     document.getElementsByTagName("input")[0].value
+      //                                 )
+      //                             })
+      //                         })
+
+      //             },3000)
+      console.log("Ok");
+
+      setInterval(async () => {
+        console.log("ok ");
+
+        lmao = await fetch("/gibmsg");
+        text = JSON.parse(await lmao.text());
+        //  console.log(await lmao.text())
+        try {
+          for (i = 0; i < document.getElementsByTagName("b").length; i++) {
+            document.getElementsByTagName("b")[i].innerText = text[i];
+          }
+        } catch (e) {}
+      }, 500);
+    </script>
+  </head>
+  <body>
+    <b>ok</b>
+    <br />
+    <b></b>
+    <br />
+
+    <b></b>
+    <br />
+
+    <b></b>
+    <br />
+    <b></b>
+    <br />
+    <b></b>
+    <br />
+
+    <b></b>
+    <br />
+
+    <b></b> <br />
+
+    <b></b><br />
+    <b></b><br />
+    <b></b><br />
+    <input />
+    <button>Send msg</button>
+    <script>
+      document
+        .getElementsByTagName("button")[0]
+        .addEventListener("click", () => {
+          console.log(document.getElementsByTagName("input")[0].value);
+          fetch("/sendmsg", {   
+            method: "POST",
+            body: JSON.stringify(
+              document.getElementsByTagName("input")[0].value
+            ),
+          });
+          document.valueslmao = [];
+          for (i = 0; i < document.getElementsByTagName("b").length; i++) {
+            document.valueslmao.push(
+              document.getElementsByTagName("b")[i].value
+            );
+          }
+          // if(valueslmao.contains("undefined")){
+          //     document.getElementsByTagName("b")[i].value=document.getElementsByTagName("input")[0].value
+          // }else{
+
+          // }
+        });
+    </script>
+  </body>
+</html>
